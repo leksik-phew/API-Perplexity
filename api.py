@@ -1,6 +1,9 @@
 from openai import OpenAI
 class api():
   def __init__(api_key=None):
+    if api_key == None: 
+      with open("key.txt") as key_file:
+        api_key = key_file.readline()
     self.API_KEY = api_key
     self.client = OpenAI(
         api_key=API_KEY,
